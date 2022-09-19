@@ -5,16 +5,21 @@ import Register from './pages/Register'
 
 
 import { Button } from 'antd'
+import { Toaster } from 'react-hot-toast'
 
 function App() {
   return (
     <div>
       <BrowserRouter>
+        <Toaster
+          position="top-center"
+          reverseOrder={false}
+        />
 
         <Routes>
 
-          <Route path='/login' element={<Login/>}></Route>
-          <Route path='/register' element={<Register/>}></Route>
+          <Route path='/login' element={<Login />}></Route>
+          <Route path='/register' element={<Register />}></Route>
 
         </Routes>
 
