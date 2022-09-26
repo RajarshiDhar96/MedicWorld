@@ -129,3 +129,6 @@ label {
 .cursor-pointer {
     cursor: pointer;
 }
+.normal-text{
+    font-size:1rem;
+}
