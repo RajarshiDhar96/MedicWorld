@@ -1,0 +1,116 @@
+.main{
+    padding: 20px;
+    height: 100vh;
+    background-image: url("https://images.unsplash.com/photo-1659298136703-f5880b90b174?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80");
+    background-size: cover;
+}
+
+.sidebar{
+    background: linear-gradient(to right, #16222a, #3a6073); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    border-radius: 5px;
+    box-shadow:  0 0 2px gray;
+    margin-right:20px ;
+    min-height: 90vh;
+    width: 300px;
+}
+.collpased-sidebar{
+
+    background: linear-gradient(to right, #16222a, #3a6073); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    border-radius: 5px;
+    box-shadow:  0 0 2px gray;
+    /* margin-right:20px ; */
+    min-height: 90vh;
+    width: 65px;
+    padding: 0px 5px;
+    margin-right: 15px;
+}
+
+.header{
+    background: linear-gradient(to right, #16222a, #3a6073); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-radius: 5px;
+    box-shadow:  0 0 2px gray;
+    margin-bottom:20px ;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   
+}
+.content{
+    width: 100%;
+    height: 100%;
+}
+
+.body{
+    background-color: white;
+    border-radius: 5px;
+    box-shadow:  0 0 2px gray;
+    
+    height: 82vh;
+    width: 100%;
+    padding: 15px;
+   
+    overflow: scroll;
+
+}
+.body::-webkit-scrollbar {
+    display: none;
+  }
+
+.menu{
+    margin-top: 50px;
+}
+
+.menu-item{
+    margin-top:30px;
+    height: 50px;
+   
+   
+
+}
+.menu-item a{
+    /* padding-top: 12px; */
+   color: white; 
+   font-size: 18px;
+   margin-top: 5px;
+}
+.menu-item img{
+    height: 32px;
+    margin-right: 20px;
+    margin-left: 10px;
+    margin-bottom: 25px;
+}
+.active-menu-item{
+    color: white;
+    background-color: rgba(248, 0, 0, 0.767);
+    padding: 5px;
+    border-radius: 10px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px; */
+    padding-left: 0px;
+   
+}
+
+.header-action-icon{
+    height: 20px;
+    color: white;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+@media (max-width:768px) {
+
+    .menu{
+        padding: 0px 5px;
+    }
+
+    
+   .active-menu-item{
+    background-color: #16222a;
+   }
+    
+}

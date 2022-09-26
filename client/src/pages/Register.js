@@ -3,14 +3,19 @@ import React from'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import toast from 'react-hot-toast'
+import { useDispatch } from 'react-redux'
+import { hideLoading, showLoading } from '../redux/alertsSlice'
 
 
 function Register()
 {
+    const dispatch=useDispatch()
     const navigate=useNavigate();
     const onFinish=async(values)=>{
        try{
+            dispatch(showLoading())
             const response=await axios.post('/api/user/register',values)
+            dispatch(hideLoading())
             if(response.data.success)
             {
                 toast.success(response.data.message)
@@ -18,6 +23,7 @@ function Register()
                 navigate('/login')
             }
             else{
+                dispatch(hideLoading())
                 toast.error(response.data.message)
             }
        }

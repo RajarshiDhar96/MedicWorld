@@ -1,35 +1,68 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&display=swap');
-*{
+
+* {
     font-family: 'Montserrat', sans-serif;
 }
+
 /* common styling */
 
-.card{
-   box-shadow: 0 0 2px gray;
-   
-}
-.card-title{
-    font-size: 1.5rem;
-    font-weight: bold;
-    /* color: rgb(192, 20, 20); */
-    background-color: rgb(255, 115, 0);
-    color: white !important;
-    max-width: max-content !important;
-    padding: 7px 15px;
-    margin-left: -40px;
-    border-radius: 10px;
+.card {
+    box-shadow: 0 0 2px gray;
 
 }
-.primary-button{
-    background-color: rgb(77, 161, 109) !important;
+
+.page-title {
+    font-size: 25px;
+    color: black;
+    font-weight: bolder;
+    text-align: center;
+    background-color: rgb(209, 223, 22);
+
+}
+
+.card-title {
+    font-size: 22px;
+
+    color: rgba(0, 0, 0, 0.627);
+    margin: 20px 0px;
+    color: rgb(255, 82, 20);
+    font-weight: bolder;
+
+
+}
+
+.primary-button {
+    background-color: rgb(3, 126, 14) !important;
     height: 40px !important;
-    width: 100% !important;
+    width: max-content !important;
     color: white;
-    font-size: 16px !important
+    font-size: 16px !important;
+    border-radius: 20px;
 
 }
-label{
+
+.spinner-parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0.8;
+    background-color: rgba(0, 0, 0, 0.562);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+}
+
+.spinner-border {
+    width: 5rem;
+    height: 5rem;
+    color: white !important;
+}
+
+label {
     font-weight: bold;
     font-size: 1.5rem;
 }
@@ -44,24 +77,55 @@ label{
     justify-content: center;
     /* background-image: url("https://images.unsplash.com/photo-1625134673337-519d4d10b313?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1538&q=80"); */
     background-image: url("https://images.unsplash.com/photo-1549560826-4b7bfe23f37b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
-    background-size:cover;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
-.authentication-form{
+
+.authentication-form {
     width: 400px;
-   
+
 
 }
 
-.app-title{
+.app-title {
     color: rgb(247, 248, 242);
     font-size: 80px;
-    
+
 }
 
-.login-link{
+.login-link {
     font-weight: bolder;
     font-size: 1.1rem;
     color: rgb(4, 4, 184);
+}
+
+.authentication .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    /* color: rgb(192, 20, 20); */
+    background-color: rgb(255, 115, 0);
+    color: white !important;
+    max-width: max-content !important;
+    padding: 7px 15px;
+    margin-left: -40px;
+    border-radius: 10px;
+
+}
+
+.anchor {
+    color: rgb(0, 0, 0) !important;
+    
+    cursor: pointer;
+    font-size: 16px !important;
+    font-weight: bolder;
+}
+
+.anchor:hover {
+    text-decoration: underline !important;
+    font-weight: bolder;
+}
+
+.cursor-pointer {
+    cursor: pointer;
 }
