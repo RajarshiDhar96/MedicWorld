@@ -153,11 +153,11 @@ router.post('/delete-all-notifications', authMiddleware, async (req, res) => {
         const user = await User.findOne({ _id: req.body.userId })
         user.seenNotifications=[];
         user.unseenNotifications=[]
-        const updatedUser = await User.findByIdAndUpdate(user._id, user)
+        const updatedUser = await user.save()
         updatedUser.password=undefined
         res.status(200).send({
             success: true,
-            message: "All notifications marked as seen",
+            message: "All notifications deleted successfully !",
             data: updatedUser
         })
     }
