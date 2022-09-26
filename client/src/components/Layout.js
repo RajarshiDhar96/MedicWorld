@@ -46,12 +46,12 @@ function Layout({ children }) {
         },
         {
             name: "Users",
-            path: "/users",
+            path: "/admin/userslist",
             icon: "https://cdn-icons-png.flaticon.com/512/1165/1165674.png"
         },
         {
             name: "Doctors",
-            path: "/doctors",
+            path: "/admin/doctorslist",
             icon: "https://cdn-icons-png.flaticon.com/512/3060/3060359.png"
         },
 
