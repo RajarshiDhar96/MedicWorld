@@ -4,11 +4,12 @@ import Layout from '../../components/Layout'
 import { showLoading, hideLoading } from '../../redux/alertsSlice'
 import axios from 'axios'
 import { Table } from 'antd'
+import toast from 'react-hot-toast'
 
 function DoctorsList() {
     const [doctors, setDoctors] = useState([])
     const dispatch = useDispatch();
-    const getUsersData = async () => {
+    const getDoctorsData = async () => {
         try {
 
             dispatch(showLoading())
@@ -29,19 +30,42 @@ function DoctorsList() {
 
     }
 
+    const changeDoctorStatus = async (record, status) => {
+        try {
+
+            dispatch(showLoading())
+            const response = await axios.post('/api/admin/change-doctor-account-status', { doctorId: record._id, userId: record.userId,status:status }, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+            })
+            dispatch(hideLoading())
+            if (response.data.success) {
+                toast.success(response.data.message)
+                getDoctorsData();
+            }
+        }
+        catch (error) {
+            toast.error("Error channging doctor status")
+            dispatch(hideLoading())
+
+        }
+
+    }
+
     useEffect(() => {
-        getUsersData()
+        getDoctorsData()
     }, [])
     const columns = [
         {
             title: 'Name',
             dataIndex: 'name',
             render: (text, record) =>
-            <span>
-                {record.firstName} {record.lastName}
-            </span>
+                <span>
+                    {record.firstName} {record.lastName}
+                </span>
         },
-       
+
         {
             title: "Phone",
             dataIndex: "phoneNumber"
@@ -61,8 +85,8 @@ function DoctorsList() {
             dataIndex: 'actions',
             render: (text, record) => (
                 <div className='d-flex'>
-                    {record.status==="Pending" && <h1 className='anchor'>Approve</h1>}
-                    {record.status==="approved" && <h1 className='anchor'>Block</h1>}
+                    {record.status === "Pending" && <h1 className='anchor' onClick={() => changeDoctorStatus(record, 'approved')}>Approve</h1>}
+                    {record.status === "approved" && <h1 className='anchor' onClick={() => changeDoctorStatus(record, 'blocked')}>Block</h1>}
                 </div>
             )
         },
