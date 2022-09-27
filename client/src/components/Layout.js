@@ -65,7 +65,28 @@ function Layout({ children }) {
 
     ];
 
-    const menuToBeRendered = user?.isAdmin ? adminMenu : userMenu;
+    const doctorMenu = [
+        {
+            name: 'Home',
+            path: '/',
+            icon: 'https://cdn-icons-png.flaticon.com/512/619/619034.png'
+        },
+        {
+            name: 'Appointments',
+            path: '/appointments',
+            icon: 'https://cdn-icons-png.flaticon.com/512/508/508765.png'
+        },
+       
+        {
+            name: 'Profile',
+            path: `/doctor/profile/${user?._id}`,
+            icon: 'https://cdn-icons-png.flaticon.com/512/2202/2202112.png'
+
+        }
+
+    ];
+
+    const menuToBeRendered = user?.isAdmin ? adminMenu : user?.isDoctor?doctorMenu:userMenu;
     const hideIcon = "https://cdn-icons-png.flaticon.com/512/812/812847.png"
     const notify = "https://cdn-icons-png.flaticon.com/512/1156/1156949.png"
     const logout = "https://cdn-icons-png.flaticon.com/512/4436/4436954.png"
