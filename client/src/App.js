@@ -16,6 +16,7 @@ import UsersList from './pages/Admin/UsersList'
 import DoctorsList from './pages/Admin/DoctorsList'
 import Profile from './pages/Doctor/Profile'
 import BookAppointment from './pages/BookAppointment'
+import Appointments from './pages/Appointments'
 
 function App() {
   const { loading } = useSelector(state => state.alerts)
@@ -43,6 +44,7 @@ function App() {
           <Route path="/admin/doctorslist" element={<ProtectedRoute> <DoctorsList /></ProtectedRoute>}/>
           <Route path="/doctor/profile/:userId" element={<ProtectedRoute> <Profile /></ProtectedRoute>}/>
           <Route path="/book-appointment/:doctorId" element={<ProtectedRoute> <BookAppointment /></ProtectedRoute>}/>
+          <Route path="/appointments" element={<ProtectedRoute> <Appointments /></ProtectedRoute>}/>
 
         </Routes>
 
