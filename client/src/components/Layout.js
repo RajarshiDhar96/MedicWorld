@@ -87,16 +87,20 @@ function Layout({ children }) {
     ];
 
     const menuToBeRendered = user?.isAdmin ? adminMenu : user?.isDoctor?doctorMenu:userMenu;
+    const role=user?.isAdmin ? "Admin" : user?.isDoctor?"Doctor":"User";
     const hideIcon = "https://cdn-icons-png.flaticon.com/512/812/812847.png"
     const notify = "https://cdn-icons-png.flaticon.com/512/1156/1156949.png"
     const logout = "https://cdn-icons-png.flaticon.com/512/4436/4436954.png"
+    const logoIcon="https://cdn-icons-png.flaticon.com/512/3004/3004458.png"
 
     return (
         <div className='main'>
             <div className='d-flex layout'>
                 <div className={`${collapsed ? 'collpased-sidebar' : 'sidebar'}`}>
                     <div className='sidebar-header'>
-
+                          <h4 className='logo'>Medic World</h4>
+                          {/* <img src={logoIcon} className="menu-item" /> */}
+                          <h6 className='role'>{role}</h6>
                     </div>
 
                     <div className='menu'>

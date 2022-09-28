@@ -101,6 +101,19 @@
     margin-left: 10px;
     cursor: pointer;
 }
+.logo{
+    color: white;
+    margin: 10px 5px;
+    font-weight: bolder;
+}
+.role{
+    font-weight: bolder;
+    color: white;
+    margin-left: 60%;
+}
+.collpased-sidebar .sidebar-header{
+    display: none;
+}
 
 @media (max-width:768px) {
 

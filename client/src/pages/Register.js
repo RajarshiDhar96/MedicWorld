@@ -19,7 +19,7 @@ function Register()
             if(response.data.success)
             {
                 toast.success(response.data.message)
-                toast("Redirecting to login page....")
+                
                 navigate('/login')
             }
             else{
