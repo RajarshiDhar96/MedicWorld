@@ -8,6 +8,7 @@ const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
 const authMiddleware = require("../middlewares/authMiddleware");
 const Appointment = require('../models/appointmentModel');
+const moment=require("moment")
 
 router.post('/register', async (req, res) => {
 
@@ -196,6 +197,8 @@ router.get("/get-all-approved-doctors", authMiddleware, async (req, res) => {
     try {
         
         req.body.status="pending"
+        req.body.date=moment(req.body.date,'DD-MM-YYYY').toISOString();
+        req.body.time=moment(req.body.time,'HH:mm').toISOString();
         const newAppointment=new Appointment(req.body)
         await newAppointment.save()
         const user=await User.findOne({_id:req.body.doctorInfo.userId})
@@ -221,6 +224,46 @@ router.get("/get-all-approved-doctors", authMiddleware, async (req, res) => {
       });
     }
   });
+
+  router.post("/check-booking-availability", authMiddleware, async (req, res) => {
+    try {
+        const date=moment(req.body.date,'DD-MM-YYYY').toISOString();
+        const fromTime=moment(req.body.time,'HH:mm').subtract(60,'minutes').toISOString();
+        const toTime=moment(req.body.time,'HH:mm').add(60,'minutes').toISOString();
+        const doctorId=req.body.doctorId
+        const appointments=await Appointment.find({
+            doctorId,
+            date,
+            time:{$gte:fromTime,$lte:toTime}
+           
+        })
+
+        if(appointments.length>0)
+        {
+            return res.status(200).send({
+                message:"Appointments not available",
+                success:false
+            })
+        }
+        else{
+            return res.status(200).send({
+                message:"Appointments available",
+                success:true
+            })
+        }
+        
+  
+    }
+    catch (error) {
+      console.log(error);
+      res.status(500).send({
+        message: "Error in booking an appointment!",
+        success: false,
+        error,
+      });
+    }
+  });
+  
   
   
   
