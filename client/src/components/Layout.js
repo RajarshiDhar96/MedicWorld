@@ -73,7 +73,7 @@ function Layout({ children }) {
         },
         {
             name: 'Appointments',
-            path: '/appointments',
+            path: 'doctor/appointments',
             icon: 'https://cdn-icons-png.flaticon.com/512/508/508765.png'
         },
        
