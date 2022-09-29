@@ -53,6 +53,7 @@
     padding: 15px;
    
     overflow: scroll;
+    overflow-x: scroll !important;
 
 }
 .body::-webkit-scrollbar {

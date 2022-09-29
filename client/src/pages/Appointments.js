@@ -76,7 +76,7 @@ function Appointments() {
     return (
         <Layout>
             <h1 className="page-header">Appointments</h1>
-            <Table columns={columns} dataSource={appointments}></Table>
+            <Table  columns={columns} dataSource={appointments}></Table>
 
         </Layout>
     )
